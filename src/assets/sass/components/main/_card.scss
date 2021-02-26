@@ -1,0 +1,263 @@
+.card {
+	height: 439px;
+	max-width: 366px;
+	width: 100%;
+	background-color: white;
+	border-radius: 10px;
+
+	@media only screen and (max-width) {
+		height: 400px;
+		width: 364px;
+	}
+
+	&__container {
+		border-radius: 6px;
+		overflow: hidden;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__media-thumb {
+		position: relative;
+	}
+
+	&__badge {
+		color: white;
+		padding: 1px 5px;
+		font-size: 1rem;
+		font-weight: 500;
+		position: absolute;
+		top: 8%;
+		left: 5%;
+		background-color: $color-primary;
+		border-radius: 3px;
+		z-index: 100;
+		cursor: pointer;
+	}
+
+	&__hover-effect {
+		//  to make child image fit
+		display: block;
+
+		overflow: hidden;
+
+		box-shadow: none;
+		text-decoration: none;
+		transition: all 0.3s ease-out 0.2s;
+
+		&::before {
+			content: '';
+			opacity: 1;
+			background-image: -webkit-gradient(
+				linear,
+				left top,
+				left bottom,
+				from(rgba(0, 0, 0, 0)),
+				color-stop(0%, rgba(0, 0, 0, 0)),
+				color-stop(50%, rgba(0, 0, 0, 0)),
+				to(rgba(0, 0, 0, 0.75))
+			);
+			background-image: -o-linear-gradient(
+				top,
+				rgba(0, 0, 0, 0) 0%,
+				rgba(0, 0, 0, 0) 0%,
+				rgba(0, 0, 0, 0) 50%,
+				rgba(0, 0, 0, 0.75) 100%
+			);
+			background-image: linear-gradient(
+				to bottom,
+				rgba(0, 0, 0, 0) 0%,
+				rgba(0, 0, 0, 0) 0%,
+				rgba(0, 0, 0, 0) 50%,
+				rgba(0, 0, 0, 0.75) 100%
+			);
+			z-index: 1;
+			display: block;
+			height: 100%;
+			width: 100%;
+			position: absolute;
+		}
+
+		& *:nth-child(1) {
+			transition: all 0.3s ease-out 0.2s;
+		}
+
+		&:hover > *:nth-child(1) {
+			transform: scale(1.1);
+			transition: all 0.3s ease-out;
+		}
+	}
+
+	&__hover-effect img {
+		//  fits image to its parent div
+		height: auto;
+		max-width: 100%;
+
+		border: none;
+		border-radius: 0;
+		box-shadow: none;
+	}
+
+	&__media-price {
+		position: absolute;
+		left: 5%;
+		bottom: 10%;
+		z-index: 25;
+		color: white;
+		cursor: pointer;
+		display: flex;
+		align-items: baseline;
+		line-height: 0.5;
+
+		& span {
+			color: inherit;
+			font-size: 3rem;
+			font-weight: 500;
+		}
+
+		& > *:nth-child(1) {
+			font-size: 1.65rem;
+			align-self: flex-start;
+			font-weight: 400;
+		}
+		& > *:nth-child(3) {
+			font-size: 1.65rem;
+			font-weight: 400;
+		}
+	}
+
+	&__media-user-image {
+		height: 4rem;
+		width: 4rem;
+		position: absolute;
+		right: 5%;
+		bottom: 7%;
+		z-index: 25;
+		cursor: pointer;
+
+		& img {
+			height: auto;
+			max-width: 100%;
+			border-radius: 50%;
+			border: 2px solid white;
+		}
+	}
+
+	&__body {
+		padding: 20px 25px;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+    background-color: white;
+    // Vertically fills up space
+    flex: 1 0 auto;
+	}
+
+	&__title-head {
+		line-height: 1.25;
+
+		& h2 {
+			font-size: 1.75rem;
+			font-weight: 600;
+			color: $color-text;
+
+			@media only screen and (max-width: $bp-small) {
+				font-size: 2rem;
+			}
+		}
+
+		& address {
+			font-style: normal;
+			font-size: 1.5rem;
+			letter-spacing: 0.5px;
+			@media only screen and (max-width: $bp-small) {
+				font-size: 1.75rem;
+			}
+		}
+	}
+
+	&__amenities {
+		list-style-type: none;
+		display: flex;
+		flex-wrap: wrap;
+		// justify-content: space-between;
+
+		& > *:not(:last-child) {
+			margin-right: 1.5rem;
+		}
+	}
+
+	&__amenities-item {
+		display: flex;
+		align-items: center;
+		font-size: 1.4rem;
+		font-weight: 500;
+		color: $color-text;
+	}
+
+	&__amenities-icon {
+		height: 1.65rem;
+		width: 1.65rem;
+		fill: $color-text;
+		margin-right: 1rem;
+	}
+
+	&__amenities-label {
+		font-size: 1.4rem;
+		color: $color-text;
+		font-weight: 500;
+	}
+
+	&__footer {
+		display: flex;
+		justify-content: space-between;
+		align-content: center;
+	}
+
+	&__stars {
+		list-style-type: none;
+		display: flex;
+		align-items: center;
+
+		& > *:not(:last-child) {
+			margin-right: 2px;
+		}
+	}
+
+	&__stars-item {
+		display: flex;
+		align-items: baseline;
+		&:nth-child(6) {
+			font-size: 1.5rem;
+			font-weight: 500;
+			color: lighten($color-text, 30%);
+
+			@media only screen and (max-width: $bp-small) {
+				font-size: 2rem;
+			}
+		}
+	}
+
+	&__star {
+		height: 1.5rem;
+		width: 1.5rem;
+		fill: #f8b42b;
+
+		@media only screen and (max-width: $bp-small) {
+			height: 1.75rem;
+			width: 1.75rem;
+		}
+	}
+
+	&__footer-dots {
+		height: 1.5rem;
+		width: 1.5rem;
+		fill: lighten($color-text, 30%);
+
+		@media only screen and (max-width: $bp-small) {
+			height: 1.75rem;
+			width: 1.75rem;
+		}
+	}
+}
