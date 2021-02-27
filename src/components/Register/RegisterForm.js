@@ -1,23 +1,48 @@
 import React from 'react';
-import { Button, Form, FormCheck, FormControl, FormText } from 'react-bootstrap';
+import { Button, Form, FormCheck } from 'react-bootstrap';
 import { Field, reduxForm } from 'redux-form';
 
-let RegisterForm = (props) => {
-	const { handleSubmit } = props;
+const BsFormControl = ({ input, type, meta: { touched, error, warning }, ...props }) => {
+	return <Form.Control {...props} type={type} {...input} />;
+};
 
-	const ReduxFormControl = ({ input, meta, ...props }) => {
-		return <FormControl {...props} {...input} />;
-	};
-	const ReduxFormCheckbox = ({ input, meta, ...props }) => {
-		return <FormCheck {...props} {...input} />;
-	};
+const BsCheckbox = ({ input, type, meta: { touched, error, warning }, ...props }) => {
+	return <Form.Check {...props} type={type} {...input} />;
+};
+
+let RegisterForm = (props) => {
+	const { handleSubmit, pristine, submitting, submitCb, valid, errors } = props;
+
+	
 
 	return (
-		<Form>
-			<Field component={ReduxFormControl} placeholder='Username or Email' type='text' />;
-			<Field component={ReduxFormControl} placeholder='Password' type='password' />;
-			<Field component={ReduxFormCheckbox} type='checkbox' label='Remember me' />
-			<Button variant='primary'>Login</Button>
+		<Form onSubmit={() => handleSubmit()}>
+			<Field
+				component={BsFormControl}
+				placeholder='Username'
+				type='text'
+				name='username'
+				autoComplete='off'
+			/>
+
+			<Field name='email' type='email' component={BsFormControl} placeholder='Email' />
+
+			<Field component={BsFormControl} placeholder='Password' type='password' name='password' />
+
+			<Field
+				component={BsFormControl}
+				placeholder='Confirm Password'
+				type='password'
+				name='password2'
+			/>
+
+			<Field
+				component={BsCheckbox}
+        name='checkbox'
+				label='Remember Me'
+				type='checkbox'
+			/>
+			<Button variant='primary'>Register</Button>
 		</Form>
 	);
 };

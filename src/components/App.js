@@ -15,7 +15,7 @@ const App = () => {
 			<BrowserRouter>
 				<div className='page'>
 					<Header />
-					<div className='container'>
+					<div className='mycontainer'>
 						<Route exact path='/' component={Home} />
 						<Route exact path='/login' component={Login} />
 						<Route exact path='/register' component={Register} />

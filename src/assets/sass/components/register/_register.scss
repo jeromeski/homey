@@ -1,0 +1,11 @@
+.register {
+
+  display: flex;
+  justify-content: center;
+  background-color: $color-far-3;
+
+  &__container {
+    height: auto;
+    max-width: 720px;
+  }
+}
