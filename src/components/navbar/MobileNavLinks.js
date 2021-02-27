@@ -1,7 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { TimelineMax, Power3 } from 'gsap';
+import { TimelineMax, Elastic } from 'gsap';
 import React, { useEffect, useRef, useState } from 'react';
 import { connect } from 'react-redux';
+import * as actions from '../../actions';
 import { NavLink } from 'react-router-dom';
 
 const MobileNavLinks = (props) => {
@@ -10,14 +11,14 @@ const MobileNavLinks = (props) => {
 
 	const timeline = new TimelineMax({ pause: true });
 	const mobile = useRef(null);
-  const mobileLink = document.querySelectorAll('.navbar__mobile-item');
+	const mobileLink = useRef(null);
 
 	const showMobileLinks = () => {
 		timeline
 			.set(mobile.current, { height: 0, opacity: '0' })
-			.set(mobileLink, { opacity: 0 })
-			.to(mobile.current, 1, { height: 'auto', opacity: 1, ease: Power3.easeOut }, 0.1)
-      .to(mobileLink, {opacity: 1}, 0.5)
+			.set(mobileLink.current, { opacity: 0 })
+			.to(mobile.current, 1, { height: 'auto', opacity: 1, ease: Elastic.easeOut }, 0.1)
+			.to(mobileLink.current, 0.1, { opacity: 1 }, 0.1)
 			.play();
 		return timeline;
 	};
@@ -25,10 +26,17 @@ const MobileNavLinks = (props) => {
 	const hideMobileLinks = () => {
 		timeline
 			.set(mobile.current, { height: 'auto', opacity: 1 })
-			.to(mobileLink, 0.5, { opacity: 0 }, 0.1)
-			.to(mobile.current, 0.5, { height: 0, opacity: 0 }, 0.2)
+			.to(mobileLink.current, 0.1, { opacity: 0 })
+			.to(mobile.current, 0.1, { height: 0, opacity: 0 }, 0.1)
 			.play();
 		return timeline;
+	};
+
+	const handleCloseMenu = () => {
+		hideMobileLinks();
+		if (isOpen) {
+			props.dispatch(actions.toggleMenu(false));
+		}
 	};
 
 	useEffect(() => {
@@ -37,22 +45,22 @@ const MobileNavLinks = (props) => {
 		} else {
 			hideMobileLinks();
 		}
-	}, [timeline, menuOpen, showMobileLinks, hideMobileLinks]);
+	}, [isOpen, timeline, menuOpen, showMobileLinks, hideMobileLinks]);
 
 	return (
 		<ul ref={mobile} className='navbar__mobile'>
-			<li className='navbar__mobile-item'>
-				<NavLink ref={mobileLink} exact activeClassName='active' to='/'>
+			<li ref={mobileLink} className='navbar__mobile-item'>
+				<NavLink exact activeClassName='active' to='/' onClick={handleCloseMenu}>
 					Home
 				</NavLink>
 			</li>
-			<li className='navbar__mobile-item'>
-				<NavLink ref={mobileLink} exact activeClassName='active' to='/login'>
+			<li ref={mobileLink} className='navbar__mobile-item'>
+				<NavLink exact activeClassName='active' to='/login' onClick={handleCloseMenu}>
 					Login
 				</NavLink>
 			</li>
-			<li className='navbar__mobile-item'>
-				<NavLink ref={mobileLink} exact activeClassName='active' to='/register'>
+			<li ref={mobileLink} className='navbar__mobile-item'>
+				<NavLink exact activeClassName='active' to='/register' onClick={handleCloseMenu}>
 					Register
 				</NavLink>
 			</li>

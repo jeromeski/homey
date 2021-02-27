@@ -3,8 +3,10 @@ import React, { useEffect, useRef, useState } from 'react';
 import { TimelineMax, Power4 } from 'gsap';
 import { connect } from 'react-redux';
 import * as action from '../../actions';
+// import {toggleMenu} from '../../actions'
 
 const MenuToggle = (props) => {
+	const { isOpen } = props;
 	const [menuOpen, setMenuOpen] = useState(null);
 	const timeline = new TimelineMax({ pause: true });
 	const topLine = useRef(null);
@@ -22,6 +24,9 @@ const MenuToggle = (props) => {
 	};
 
 	useEffect(() => {
+		if (!isOpen && menuOpen) {
+			setMenuOpen(false);
+		}
 		if (menuOpen) {
 			timeline
 				.to(middleLine.current, 0.1, { opacity: 0, ease: Power4.easeOut }, 0.2)
@@ -53,7 +58,7 @@ const MenuToggle = (props) => {
 				.to(middleLine.current, 0, { opacity: 1, ease: Power4.easeIn }, 0.3)
 				.play();
 		}
-	}, [menuOpen, timeline]);
+	}, [menuOpen, isOpen, timeline]);
 
 	return (
 		<div>
@@ -66,7 +71,7 @@ const MenuToggle = (props) => {
 				width='24px'
 				height='28px'
 				viewBox='0 0 24 28'
-				onClick={() => handleToggleMenu()}>
+				onClick={handleToggleMenu}>
 				<g ref={topLine}>
 					<path d='M24,21v2c0,0.547-0.453,1-1,1H1c-0.547,0-1-0.453-1-1v-2c0-0.547,0.453-1,1-1h22C23.547,20,24,20.453,24,21z' />
 				</g>

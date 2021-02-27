@@ -5,11 +5,6 @@
 	background-color: white;
 	border-radius: 10px;
 
-	@media only screen and (max-width) {
-		height: 400px;
-		width: 364px;
-	}
-
 	&__container {
 		border-radius: 6px;
 		overflow: hidden;
@@ -194,6 +189,10 @@
 		font-size: 1.4rem;
 		font-weight: 500;
 		color: $color-text;
+
+    @media only screen and (max-width: $bp-small) {
+			font-size: 1.75rem;
+		}
 	}
 
 	&__amenities-icon {
@@ -201,12 +200,21 @@
 		width: 1.65rem;
 		fill: $color-text;
 		margin-right: 1rem;
+
+    @media only screen and (max-width: $bp-small) {
+			height: 2.25rem;
+		  width: 2.25rem;
+		}
 	}
 
 	&__amenities-label {
 		font-size: 1.4rem;
 		color: $color-text;
 		font-weight: 500;
+
+    @media only screen and (max-width: $bp-small) {
+			font-size: 1.75rem;
+		}
 	}
 
 	&__footer {

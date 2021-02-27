@@ -1,9 +1,13 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
+import { useMediaQuery } from 'react-responsive';
 import image from '../../../assets/img/28-450x300.jpg';
 import sprites from '../../../assets/img/sprites.svg';
+import { DeviceSize } from '../../../responsive/index';
 
 const RentalCard = () => {
+
+  const isMobile = useMediaQuery({ maxWidth: DeviceSize.mobile });
 	return (
 		<div className='card'>
 			<div className='card__container'>
@@ -35,19 +39,19 @@ const RentalCard = () => {
 							<svg className='card__amenities-icon'>
 								<use xlinkHref={`${sprites}#icon-bed`}></use>
 							</svg>
-							<span className='card__amenities-label'>3 Bedrooms</span>
+							<span className='card__amenities-label'>3 {!isMobile && 'Bedrooms'}</span>
 						</li>
 						<li className='card__amenities-item'>
 							<svg className='card__amenities-icon'>
 								<use xlinkHref={`${sprites}#icon-shower`}></use>
 							</svg>
-							<span className='card__amenities-label'>2 Baths</span>
+							<span className='card__amenities-label'>2 {!isMobile && 'Baths'}</span>
 						</li>
 						<li className='card__amenities-item'>
 							<svg className='card__amenities-icon'>
 								<use xlinkHref={`${sprites}#icon-user`}></use>
 							</svg>
-							<span className='card__amenities-label'>6 Guests</span>
+							<span className='card__amenities-label'>6 {!isMobile && 'Guests'}</span>
 						</li>
 						<li className='card__amenities-item'>Apartment</li>
 					</ul>

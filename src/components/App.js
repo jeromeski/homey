@@ -4,8 +4,8 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import { init } from '../reducers';
 import Header from './Header';
 import Home from './Home';
-import Login from './Login';
-import Register from './Register';
+import Login from '../components/Login';
+import Register from '../components/Register';
 
 const store = init();
 

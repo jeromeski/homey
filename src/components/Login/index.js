@@ -1,11 +1,7 @@
 import React from 'react';
 
 const Login = () => {
-	return (
-		<div className='container'>
-			<h1>LOGIN PAGE</h1>
-		</div>
-	);
+	return <div className='login'></div>;
 };
 
 export default Login;
