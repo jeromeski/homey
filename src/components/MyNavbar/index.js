@@ -4,32 +4,32 @@ import { useMediaQuery } from 'react-responsive';
 import logo from '../../assets/img/homey-logo-white.png';
 import sprites from '../../assets/img/sprites.svg';
 import { DeviceSize } from '../../responsive/index';
-import MenuToggle from './MenuToggle';
+import MyMenuToggle from './MenuToggle';
 import MobileNavLinks from './MobileNavLinks';
-import Navlinks from './Navlinks';
+import Navlinks from './MyNavlinks';
 
-const Navbar = () => {
+const MyNavbar = () => {
 	const isMobile = useMediaQuery({ maxWidth: DeviceSize.mobile });
 	return (
-		<div className='navbar'>
-			<div className='navbar__container'>
-				<div className='navbar__logo'>
+		<div className='mynavbar'>
+			<div className='mynavbar__container'>
+				<div className='mynavbar__logo'>
 					<img src={logo} alt='Logo' />
 				</div>
-				<div className='navbar__search'>
-					<input className='navbar__search-input' type='search' placeholder='Search here...' />
-					<button className='navbar__search-button'>
-						<svg className='navbar__search-icon'>
+				<div className='mynavbar__search'>
+					<input className='mynavbar__search-input' type='search' placeholder='Search here...' />
+					<button className='mynavbar__search-button'>
+						<svg className='mynavbar__search-icon'>
 							<use xlinkHref={`${sprites}#icon-search`}></use>
 						</svg>
 					</button>
 				</div>
 				{!isMobile && <Navlinks />}
-				{isMobile && <MenuToggle />}
+				{isMobile && <MyMenuToggle />}
 			</div>
 			{isMobile && <MobileNavLinks />}
 		</div>
 	);
 };
 
-export default Navbar;
+export default MyNavbar;

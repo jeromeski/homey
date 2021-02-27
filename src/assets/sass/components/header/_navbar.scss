@@ -1,5 +1,5 @@
 // NAVBAR
-.navbar {
+.mynavbar {
 	background-color: black;
   height: 100%;
   width: 100%;
@@ -30,6 +30,7 @@
 		background-color: orange;
 		display: flex;
 		margin-right: auto;
+    margin-bottom: -1rem;
 		@media only screen and (max-width: $bp-small) {
 			order: 1;
       width: 100%;

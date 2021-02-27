@@ -1,4 +1,5 @@
 import { combineReducers, createStore } from 'redux';
+import { reducer as formReducer } from 'redux-form';
 import { IS_OPEN } from '../actions/types';
 
 const INIT_STATE = null;
@@ -13,8 +14,8 @@ const menuToggleReducer = (state = INIT_STATE, action) => {
 };
 
 export const init = () => {
-	const mainReducer = combineReducers({ isOpen: menuToggleReducer });
+	const rootReducer = combineReducers({ isOpen: menuToggleReducer, form: formReducer });
 
-	const store = createStore(mainReducer);
+	const store = createStore(rootReducer);
 	return store;
 };

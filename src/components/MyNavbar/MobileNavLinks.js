@@ -48,18 +48,18 @@ const MobileNavLinks = (props) => {
 	}, [isOpen, timeline, menuOpen, showMobileLinks, hideMobileLinks]);
 
 	return (
-		<ul ref={mobile} className='navbar__mobile'>
-			<li ref={mobileLink} className='navbar__mobile-item'>
+		<ul ref={mobile} className='mynavbar__mobile'>
+			<li ref={mobileLink} className='mynavbar__mobile-item'>
 				<NavLink exact activeClassName='active' to='/' onClick={handleCloseMenu}>
 					Home
 				</NavLink>
 			</li>
-			<li ref={mobileLink} className='navbar__mobile-item'>
+			<li ref={mobileLink} className='mynavbar__mobile-item'>
 				<NavLink exact activeClassName='active' to='/login' onClick={handleCloseMenu}>
 					Login
 				</NavLink>
 			</li>
-			<li ref={mobileLink} className='navbar__mobile-item'>
+			<li ref={mobileLink} className='mynavbar__mobile-item'>
 				<NavLink exact activeClassName='active' to='/register' onClick={handleCloseMenu}>
 					Register
 				</NavLink>

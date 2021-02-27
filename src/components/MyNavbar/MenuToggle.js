@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import * as action from '../../actions';
 // import {toggleMenu} from '../../actions'
 
-const MenuToggle = (props) => {
+const MyMenuToggle = (props) => {
 	const { isOpen } = props;
 	const [menuOpen, setMenuOpen] = useState(null);
 	const timeline = new TimelineMax({ pause: true });
@@ -64,7 +64,7 @@ const MenuToggle = (props) => {
 		<div>
 			<svg
 				version='1.1'
-				className='navbar__menu'
+				className='mynavbar__menu'
 				xmlnsXlink='http://www.w3.org/1999/xlink'
 				x='0px'
 				y='0px'
@@ -92,4 +92,4 @@ const mapStateToProps = (state) => {
 	};
 };
 
-export default connect(mapStateToProps)(MenuToggle);
+export default connect(mapStateToProps)(MyMenuToggle);
