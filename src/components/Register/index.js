@@ -6,12 +6,14 @@ import sprites from '../../assets/img/sprites.svg';
 
 const Register = () => {
 	return (
-		<div className='register'>
-			<div className='register__container'>
-				<div className='register__inner'>
-					<div className='register__right'>
-            <p className='register__right-title'>Welcome <br/> Please Register!</p>
-						<div className='register__right-inner'>
+		<div className='auth'>
+			<div className='auth__container'>
+				<div className='auth__inner'>
+					<div className='auth__right'>
+						<p className='auth__right-title'>
+							Welcome <br /> Please Register!
+						</p>
+						<div className='auth__right-inner'>
 							<div className='register__header'>
 								<p>Register</p>
 							</div>

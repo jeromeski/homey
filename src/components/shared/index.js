@@ -6,5 +6,5 @@ export const BsFormControl = ({ input, type, meta: { touched, error, warning }, 
 };
 
 export const BsCheckbox = ({ input, type, meta: { touched, error, warning }, ...props }) => {
-	return <Form.Check {...props} type={type} {...input} />;
+	return <input {...props} type={type} {...input} />;
 };
