@@ -106,7 +106,7 @@
 		color: white;
 		cursor: pointer;
 		display: flex;
-		align-items: baseline;
+		align-items: center;
 		line-height: 0.5;
 
 		& span {
@@ -117,7 +117,7 @@
 
 		& > *:nth-child(1) {
 			font-size: 1.65rem;
-			align-self: flex-start;
+			align-self: flex-end;
 			font-weight: 400;
 		}
 		& > *:nth-child(3) {
