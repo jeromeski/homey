@@ -2,14 +2,14 @@
   font-size: 1.5rem;
 	font-weight: 600;
   text-decoration: none;
-  color: $color-grey-light-4;
+  color: lighten($color-text, 5%);
 }
 
 @mixin linkMobile {
   font-size: 2rem;
 	font-weight: 600;
   text-decoration: none;
-  color: $color-grey-light-4;
+  color: lighten($color-text, 5%);
 }
 
 @mixin button {

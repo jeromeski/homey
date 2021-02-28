@@ -60,6 +60,11 @@ const MobileNavLinks = (props) => {
 				</NavLink>
 			</li>
 			<li ref={mobileLink} className='mynavbar__mobile-item'>
+				<NavLink exact activeClassName='active' to='/listing' onClick={handleCloseMenu}>
+					Listing
+				</NavLink>
+			</li>
+			<li ref={mobileLink} className='mynavbar__mobile-item'>
 				<NavLink exact activeClassName='active' to='/login' onClick={handleCloseMenu}>
 					Login
 				</NavLink>

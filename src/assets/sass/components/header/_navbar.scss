@@ -2,7 +2,7 @@
 .mynavbar {
   position: fixed;
 	background: rgb(235,83,83);
-  background: linear-gradient(90deg, rgba(235,83,83,1) 0%, rgba(241,94,117,1) 100%);
+  background: linear-gradient(45deg, rgba(235,83,83,1) 0%, rgba(241,94,117,1) 100%);
   height: auto;
   width: 100%;
   z-index: 10;
@@ -103,7 +103,8 @@
 	&__links-wrap {
 		// background-color: yellowgreen;
 		list-style-type: none;
-		margin-right: 2rem;
+		// margin-right: 2rem;
+    display: flex;
 
     @media only screen and (max-width: $bp-small) {
 			margin: 0;
@@ -114,6 +115,10 @@
 			font-weight: 600;
 			padding: 1rem;
 		}
+
+    & > *:not(:last-child) {
+      margin-right: 1rem;
+    }
 	}
 
 	&__links-item {
@@ -138,7 +143,7 @@
 		// background-color: lightskyblue;
 		display: flex;
 		list-style-type: none;
-    align-items: baseline;
+    align-items: center;
     padding: 1rem;
 		& > li a {
       @include link;
@@ -169,7 +174,7 @@
 	&__auth-icon {
 		height: 1rem;
 		width: 1rem;
-		fill: $color-grey-light-4;
+		fill: $color-text;
 	}
 
   &__menu {

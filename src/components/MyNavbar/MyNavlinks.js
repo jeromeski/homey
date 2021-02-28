@@ -11,6 +11,11 @@ const MyNavlinks = () => {
 						Home
 					</NavLink>
 				</li>
+				<li className='mynavbar__links-item'>
+					<NavLink exact activeClassName='active' to='/listing'>
+						Listing
+					</NavLink>
+				</li>
 			</ul>
 			<ul className='mynavbar__auth-wrap'>
 				<li className='mynavbar__auth-item'>

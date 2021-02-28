@@ -1,20 +1,20 @@
 import React, { Component } from 'react';
 import Slider from 'react-slick';
-import RentalCard from './RentalCard';
+import RentalCard from '../../shared/RentalCard';
 
 const PrevArrow = ({ onClick }) => (
-	<button className='rentals-slick-prev' onClick={onClick}>
+	<button className='featured-slick-prev' onClick={onClick}>
 		<div>PREV</div>
 	</button>
 );
 
 const NextArrow = ({ onClick }) => (
-	<button className='rentals-slick-next' onClick={onClick}>
+	<button className='featured-slick-next' onClick={onClick}>
 		<div>NEXT</div>
 	</button>
 );
 
-class RentalList extends Component {
+class FeaturedList extends Component {
 	render() {
 		var settings = {
 			dots: true,
@@ -26,7 +26,7 @@ class RentalList extends Component {
 			slidesToScroll: 1,
 			initialSlide: 0,
 			arrows: true,
-			appendArrows: '.rentals-module-slider',
+			appendArrows: '.featured-module-slider',
 			prevArrow: <PrevArrow />,
 			nextArrow: <NextArrow />,
 			responsive: [
@@ -55,10 +55,10 @@ class RentalList extends Component {
 			]
 		};
 		return (
-			<div className='rentals'>
-				<h2 className='rentals__title'>Our Featured Homes</h2>
-				<p className='rentals__subtitle'>Hand-picked selection of quality places</p>
-				<div className='rentals-module-slider'>
+			<div className='featured'>
+				<h2 className='featured__title'>Our Featured Homes</h2>
+				<p className='featured__subtitle'>Hand-picked selection of quality places</p>
+				<div className='featured__module-slider'>
 					<Slider {...settings}>
 						<RentalCard />
 						<RentalCard />
@@ -73,4 +73,4 @@ class RentalList extends Component {
 	}
 }
 
-export default RentalList;
+export default FeaturedList;

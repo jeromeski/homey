@@ -6,8 +6,7 @@ import sprites from '../../../assets/img/sprites.svg';
 import { DeviceSize } from '../../../responsive/index';
 
 const RentalCard = () => {
-
-  const isMobile = useMediaQuery({ maxWidth: DeviceSize.mobile });
+	const isMobile = useMediaQuery({ maxWidth: DeviceSize.mobile });
 	return (
 		<div className='mycard'>
 			<div className='mycard__container'>

@@ -1,4 +1,4 @@
-.rentals {
+.featured {
 	margin-top: 9rem;
 	background-color: $color-grey-light-1;
 
@@ -29,11 +29,11 @@
 	}
 }
 
-.rentals-module-slider {
-  padding-top: 2rem;
+.featured-module-slider {
+  // padding-top: 2rem;
 }
 
-.rentals-slick-prev {
+.featured-slick-prev {
 	color: #f15e75;
 	border: 1px solid #f15e75;
 	background-color: transparent;
@@ -56,6 +56,11 @@
   border-radius: 3px;
   font-weight: 700;
 
+  @media only screen and (max-width: $bp-small) {
+    visibility: hidden;
+    opacity: 0;
+  }
+
   &:hover {
     background-color: #f58d9d;
     border: 1px solid #f58d9d;
@@ -69,7 +74,7 @@
   }
 }
 
-.rentals-slick-next {
+.featured-slick-next {
   color: #f15e75;
 	border: 1px solid #f15e75;
 	background-color: transparent;
@@ -90,6 +95,11 @@
   text-align: center;
   border-radius: 3px;
   font-weight: 700;
+
+  @media only screen and (max-width: $bp-small) {
+    visibility: hidden;
+    opacity: 0;
+  }
 
   &:hover {
     background-color: #f58d9d;

@@ -1,7 +1,7 @@
 /* eslint-disable import/no-anonymous-default-export */
 import React from 'react';
 import { useMediaQuery } from 'react-responsive';
-import logo from '../../assets/img/homey-logo-white.png';
+import logo from '../../assets/img/homey-logo.png';
 import sprites from '../../assets/img/sprites.svg';
 import { DeviceSize } from '../../responsive/index';
 import MyMenuToggle from './MenuToggle';

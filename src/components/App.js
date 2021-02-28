@@ -6,6 +6,7 @@ import Header from './Header';
 import Home from './Home';
 import Login from '../components/Login';
 import Register from '../components/Register';
+import Listing from './Listing';
 
 const store = init();
 
@@ -19,6 +20,7 @@ const App = () => {
 						<Route exact path='/' component={Home} />
 						<Route exact path='/login' component={Login} />
 						<Route exact path='/register' component={Register} />
+						<Route exact path='/listing' component={Listing} />
 					</div>
 				</div>
 			</BrowserRouter>
