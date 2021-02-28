@@ -1,31 +1,107 @@
-
-
 .rentals {
-  margin-top: 9rem;
-  background-color: $color-grey-light-1;
+	margin-top: 9rem;
+	background-color: $color-grey-light-1;
 
-  @media only screen and (max-width: $bp-small) {
-    margin-top: 15rem;
+	@media only screen and (max-width: $bp-small) {
+		margin-top: 15rem;
 	}
 
-  &__title {
-    font-size: 2.25rem;
-    font-weight: 600;
-    color: $color-text;
+	&__title {
+		font-size: 2.25rem;
+		font-weight: 600;
+		color: $color-text;
+	}
+
+	&__subtitle {
+		font-size: 1.65rem;
+		font-weight: 500;
+		color: $color-text;
+		margin-bottom: 3rem;
+	}
+}
+
+.slick-slider {
+	padding-left: 5px;
+  position: relative;
+
+	@media only screen and (max-width: $bp-smallest) {
+		padding-left: 0;
+	}
+}
+
+.rentals-module-slider {
+  padding-top: 2rem;
+}
+
+.rentals-slick-prev {
+	color: #f15e75;
+	border: 1px solid #f15e75;
+	background-color: transparent;
+
+  font-size: 12px;
+  height: 24px;
+  width: 43px;
+  top: -35px;
+  bottom: auto;
+  transform: none;
+
+  right: 50px;
+  left: auto;
+  display: block;
+
+  position: absolute;
+
+  z-index: 1;
+  text-align: center;
+  border-radius: 3px;
+  font-weight: 700;
+
+  &:hover {
+    background-color: #f58d9d;
+    border: 1px solid #f58d9d;
+    color: #fff;
   }
 
-  &__subtitle {
-    font-size: 1.65rem;
-    font-weight: 500;
-    color: $color-text;
-    margin-bottom: 3rem;
+  &:active {
+    color: #f15e75;
+    border: 1px solid #f15e75;
+    background-color: transparent;
   }
 }
 
-.slick-slide {
-  padding-left: 5px;
+.rentals-slick-next {
+  color: #f15e75;
+	border: 1px solid #f15e75;
+	background-color: transparent;
 
-  @media only screen and (max-width: $bp-smallest) {
-    padding-left: 0;
-	}
+  font-size: 12px;
+  height: 24px;
+  width: 43px;
+  top: -35px;
+  bottom: auto;
+  transform: none;
+
+  right: 0;
+  left: auto;
+  display: block;
+
+  position: absolute;
+  z-index: 1;
+  text-align: center;
+  border-radius: 3px;
+  font-weight: 700;
+
+  &:hover {
+    background-color: #f58d9d;
+    border: 1px solid #f58d9d;
+    color: #fff;
+  }
+
+  &:active {
+    color: #f15e75;
+    border: 1px solid #f15e75;
+    background-color: transparent;
+  }
 }
+
+

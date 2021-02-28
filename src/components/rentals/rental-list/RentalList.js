@@ -2,16 +2,33 @@ import React, { Component } from 'react';
 import Slider from 'react-slick';
 import RentalCard from './RentalCard';
 
+const PrevArrow = ({ onClick }) => (
+	<button className='rentals-slick-prev' onClick={onClick}>
+		<div>PREV</div>
+	</button>
+);
+
+const NextArrow = ({ onClick }) => (
+	<button className='rentals-slick-next' onClick={onClick}>
+		<div>NEXT</div>
+	</button>
+);
+
 class RentalList extends Component {
 	render() {
 		var settings = {
 			dots: true,
 			infinite: false,
+			adaptiveHeight: true,
+			lazyLoad: 'ondemand',
 			speed: 500,
 			slidesToShow: 3,
 			slidesToScroll: 1,
 			initialSlide: 0,
-			arrows: false,
+			arrows: true,
+			appendArrows: '.rentals-module-slider',
+			prevArrow: <PrevArrow />,
+			nextArrow: <NextArrow />,
 			responsive: [
 				{
 					breakpoint: 1024,
@@ -41,14 +58,16 @@ class RentalList extends Component {
 			<div className='rentals'>
 				<h2 className='rentals__title'>Our Featured Homes</h2>
 				<p className='rentals__subtitle'>Hand-picked selection of quality places</p>
-				<Slider {...settings}>
-					<RentalCard />
-					<RentalCard />
-					<RentalCard />
-					<RentalCard />
-					<RentalCard />
-					<RentalCard />
-				</Slider>
+				<div className='rentals-module-slider'>
+					<Slider {...settings}>
+						<RentalCard />
+						<RentalCard />
+						<RentalCard />
+						<RentalCard />
+						<RentalCard />
+						<RentalCard />
+					</Slider>
+				</div>
 			</div>
 		);
 	}
