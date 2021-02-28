@@ -12,7 +12,7 @@ const Login = () => {
 				<div className='auth__inner'>
 					<div className='auth__right'>
 						<p className='auth__right-title'>
-							Welcome <br /> Please Login!
+							Welcome <br /> Please Login! &nbsp;&nbsp; &nbsp;
 						</p>
 						<div className='auth__right-inner'>
 							<div className='login__header'>
