@@ -1,0 +1,86 @@
+.btn-custom-1 {
+  @include button;
+  color: $color-facebook;
+  border: 1px solid $color-facebook;
+  padding: .95rem;
+  transition: all .2s ease-out;
+  
+  & > *:nth-child(2) {
+    margin-right: auto;
+  }
+  
+  @media only screen and (max-width: $bp-small) {
+    height: 5rem;
+    font-size: 1.75rem;
+  }
+
+  &:hover, &:active, &:focus {
+    background-color: $color-facebook;
+    color: white;
+    transition: all .2s ease-out;
+    outline: none;
+  }
+
+  &:hover > *:nth-child(1),
+  &:focus > *:nth-child(1),
+  &:active > *:nth-child(1)
+  {
+    fill: white;
+    transition: all .2s ease-out;
+  }
+}
+
+.btn-custom-2 {
+  @include button;
+  color: $color-google;
+  border: 1px solid $color-google;
+  padding: .95rem;
+  & > *:nth-child(2) {
+    margin-right: auto;
+  }
+  @media only screen and (max-width: $bp-small) {
+    height: 5rem;
+    font-size: 1.75rem;
+  }
+  &:hover, &:active, &:focus {
+    background-color: $color-google;
+    color: white;
+    transition: all .3s ease-out;
+    outline: none;
+  }
+
+  &:hover > *:nth-child(1),
+  &:focus > *:nth-child(1),
+  &:active > *:nth-child(1)
+  {
+    fill: white;
+    transition: all .3s ease-out;
+  }
+}
+
+.btn-custom-3 {
+  @include button;
+  background-color: $color-primary;
+  padding: .95rem;
+  color: white;
+  transition: all .3s ease-out;
+  @media only screen and (max-width: $bp-small) {
+    height: 5rem;
+    font-size: 1.75rem;
+  }
+  &:hover {
+    background-color: lighten($color-primary, 10%);
+    color: white;
+    transition: all .3s ease-out;
+  }
+}
+
+.btn-icon-1 {
+  @include btn-icon;
+  fill: $color-facebook;
+}
+
+.btn-icon-2 {
+  @include btn-icon;
+  fill: $color-google;
+}

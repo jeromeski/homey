@@ -1,6 +1,7 @@
 // NAVBAR
 .mynavbar {
-	background-color: black;
+	background: rgb(235,83,83);
+  background: linear-gradient(90deg, rgba(235,83,83,1) 0%, rgba(241,94,117,1) 100%);
   height: 100%;
   width: 100%;
   
@@ -8,10 +9,11 @@
 		margin: 0 5rem;
 		height: 100%;
 		// width: 90%;
-		min-height: 8rem;
+		min-height: 7rem;
 
 		display: flex;
-		align-items: center;
+		// align-content: baseline;
+    align-items: baseline;
 		justify-content: space-between;
 
 		@media only screen and (max-width: $bp-small) {
@@ -27,7 +29,6 @@
 	}
 
 	&__search {
-		background-color: orange;
 		display: flex;
 		margin-right: auto;
     margin-bottom: -1rem;
@@ -166,7 +167,7 @@
 	&__auth-icon {
 		height: 1rem;
 		width: 1rem;
-		fill: $color-grey-dark-2;
+		fill: $color-grey-light-4;
 	}
 
   &__menu {
