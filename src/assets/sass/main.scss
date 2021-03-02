@@ -9,7 +9,9 @@
 @import './components/header/search';
 @import './components/header/navbar';
 @import './components/featured/featured-list';
-@import './components/cards/card';
+@import './components/listing/listing-list.scss';
+@import './components/cards/card-type-1';
+@import './components/cards/card-type-2';
 @import './components/auth/auth';
 @import './components/auth/register-form';
 @import './components/auth/login-form';

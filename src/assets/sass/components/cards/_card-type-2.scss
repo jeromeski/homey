@@ -1,6 +1,6 @@
-.mycard {
-	height: 439px;
-	max-width: 366px;
+.card-type-2 {
+	height: 20rem;
+	max-width: 114rem;
 	width: 100%;
 	background-color: white;
 	border-radius: 10px;
@@ -14,8 +14,16 @@
 		overflow: hidden;
 		height: 100%;
 		display: flex;
-		flex-direction: column;
+		flex-direction: row;
 	}
+
+  &__header {
+    width: 30rem;
+  }
+
+  &__media {
+    height: 100%;
+  }
 
 	&__media-thumb {
 		position: relative;
@@ -127,20 +135,32 @@
 	}
 
 	&__media-user-image {
-		height: 4rem;
-		width: 4rem;
+		// width: 100%;
 		position: absolute;
-		right: 5%;
+		right: -44%;
 		bottom: 7%;
 		z-index: 25;
 		cursor: pointer;
+    display: flex;
+    align-items: center;
 
 		& img {
-			height: auto;
-			max-width: 100%;
+			height: 4rem;
+		  width: 4rem;
 			border-radius: 50%;
 			border: 2px solid white;
 		}
+
+    & div {
+      margin-left: 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    & div span {
+      font-weight: 700;
+    }
 	}
 
 	&__body {
@@ -170,6 +190,7 @@
 			font-style: normal;
 			font-size: 1.5rem;
 			letter-spacing: 0.5px;
+      margin-bottom: 0;
 			@media only screen and (max-width: $bp-small) {
 				font-size: 1.75rem;
 			}
@@ -180,6 +201,8 @@
 		list-style-type: none;
 		display: flex;
 		flex-wrap: wrap;
+    // max-width: 100%;
+    width: 40%;
 		// justify-content: space-between;
 
 		& > *:not(:last-child) {
@@ -223,14 +246,27 @@
 
 	&__footer {
 		display: flex;
-		justify-content: space-between;
-		align-content: center;
+		justify-content: flex-end;
+    align-items: center;
+
 	}
+
+  &__footer-left {
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+
+  &__footer-right {
+    display: flex;
+    align-items: baseline;
+    height: 100%;
+  }
 
 	&__stars {
 		list-style-type: none;
 		display: flex;
-		align-items: center;
+    align-items: center;
 
 		& > *:not(:last-child) {
 			margin-right: 2px;
@@ -239,11 +275,13 @@
 
 	&__stars-item {
 		display: flex;
-		align-items: baseline;
+		align-items: center;
+    margin-right: 1rem;
 		&:nth-child(6) {
-			font-size: 1.5rem;
+			font-size: 1.6rem;
 			font-weight: 500;
 			color: lighten($color-text, 30%);
+      line-height: 1;
 
 			@media only screen and (max-width: $bp-small) {
 				font-size: 2rem;
