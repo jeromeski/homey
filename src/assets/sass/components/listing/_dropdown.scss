@@ -1,0 +1,27 @@
+.dropdown {
+
+   & :nth-child(1) {
+    font-size: 1.4rem;
+  }
+
+  & *:nth-child(2) {
+    border: none;
+    box-shadow: $shadow-light;
+
+    & > * {
+      font-size: 1.4rem;
+      padding: 1rem 2rem;
+      cursor: pointer;
+    }
+
+    & > *:hover {
+      background-color: $color-primary-light;
+      color: white;
+    }
+  }
+}
+
+.dropdown-toggle:focus {
+  outline: none !important;
+  box-shadow: none;
+}

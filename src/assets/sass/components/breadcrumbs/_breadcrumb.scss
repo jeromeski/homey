@@ -1,0 +1,19 @@
+.breadcrumb {
+  background-color: transparent;
+  padding-left: 0;
+  padding-bottom: .25rem;
+}
+
+.breadcrumb-item {
+  font-weight: 500;
+  font-size: 1.25rem;
+}
+
+.breadcrumb-item a {
+  font-weight: inherit;
+  color: $color-primary;
+}
+
+.breadcrumb-item+.breadcrumb-item::before {
+    content: ">";
+}

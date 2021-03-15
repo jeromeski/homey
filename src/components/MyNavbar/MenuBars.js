@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { TimelineMax, Power4 } from 'gsap';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
@@ -76,7 +76,6 @@ const MenuBars = (props) => {
 					<path d='M24,5v2c0,0.547-0.453,1-1,1H1C0.453,8,0,7.547,0,7V5c0-0.547,0.453-1,1-1h22C23.547,4,24,4.453,24,5z' />
 				</g>
 			</svg>
-			<div>{isOpen ? 'true' : 'false'}</div>
 		</div>
 	);
 };

@@ -6,32 +6,29 @@ import { NavLink } from 'react-router-dom';
 import * as actions from '../../actions';
 
 
-const showMobileLinks = (timeline, mobile, mobileLink) => {
+const showMobileLinks = (timeline, mobile, mobileLi) => {
 	timeline
 		.set(mobile.current, { height: 0, opacity: '0', visibility: 'hidden' })
-		.set(mobileLink.current, { opacity: 0, visibility: 'hidden' })
+		.set(mobileLi.current, { opacity: 0, visibility: 'hidden' })
 		.to(
 			mobile.current,
 			1,
 			{ height: 'auto', opacity: 1, visibility: 'visible', ease: Elastic.easeOut },
-			0.1
+			0.25
 		)
-		.to(mobileLink.current, 0.1, { opacity: 1, visibility: 'visible' }, 0.1)
+		.to(mobileLi.current, 0.1, { opacity: 1, visibility: 'visible' }, 0.1)
 		.play();
 	return timeline;
 };
 
-const hideMobileLinks = (timeline, mobile, mobileLink) => {
+const hideMobileLinks = (timeline, mobile, mobileLi) => {
 	timeline
 		.set(mobile.current, { height: 'auto', opacity: 1, visibility: 'visible' })
-		.to(mobileLink.current, 0.1, { opacity: 0 })
+		.to(mobileLi.current, 0.1, { opacity: 0 })
 		.to(mobile.current, 0.1, { height: 0, opacity: 0, visibility: 'hidden' }, 0.1)
 		.play();
 	return timeline;
 };
-
-
-
 
 const MobileNavLinks = (props) => {
 	const { isOpen, dispatch } = props;
@@ -48,7 +45,7 @@ const MobileNavLinks = (props) => {
 	};
 
 	const handleCloseMenu = () => {
-		hideMobileLinks();
+		hideMobileLinks(timeline, mobile, mobileLi);
 		if (isOpen) {
 			dispatch(actions.toggleMenu(false));
 		}
