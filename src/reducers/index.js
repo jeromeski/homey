@@ -2,9 +2,9 @@ import { combineReducers, createStore } from 'redux';
 import { reducer as formReducer } from 'redux-form';
 import { IS_OPEN } from '../actions/types';
 
-const INIT_STATE = null;
+const INIT_STATE = false;
 
-const menuToggleReducer = (state = INIT_STATE, action) => {
+const toggleMenuReducer = (state = INIT_STATE, action) => {
 	switch (action.type) {
 		case IS_OPEN:
 			return action.payload;
@@ -14,7 +14,7 @@ const menuToggleReducer = (state = INIT_STATE, action) => {
 };
 
 export const init = () => {
-	const rootReducer = combineReducers({ isOpen: menuToggleReducer, form: formReducer });
+	const rootReducer = combineReducers({ isOpen: toggleMenuReducer, form: formReducer });
 
 	const store = createStore(rootReducer);
 	return store;

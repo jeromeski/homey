@@ -5,8 +5,9 @@
 	background-color: white;
 	border-radius: 10px;
 
-  @media only screen and (max-width: $bp-small) {
-    height: 410px;
+  @media only screen and (max-width: $bp-medium) {
+    height: 439px;
+    max-width: 366px;
 	}
 
 	&__container {
@@ -15,10 +16,17 @@
 		height: 100%;
 		display: flex;
 		flex-direction: row;
+
+    @media only screen and (max-width: $bp-medium) {
+      flex-direction: column;
+    }
 	}
 
   &__header {
     width: 30rem;
+    @media only screen and (max-width: $bp-medium) {
+      width: auto;
+    }
   }
 
   &__media {
@@ -144,6 +152,10 @@
     display: flex;
     align-items: center;
 
+    @media only screen and (max-width: $bp-medium) {
+      	right: 5%;
+	  }
+
 		& img {
 			height: 4rem;
 		  width: 4rem;
@@ -201,9 +213,12 @@
 		list-style-type: none;
 		display: flex;
 		flex-wrap: wrap;
-    // max-width: 100%;
     width: 40%;
-		// justify-content: space-between;
+
+    @media only screen and (max-width: $bp-medium) {
+			max-width: 100%;
+      width: 90%;
+		}
 
 		& > *:not(:last-child) {
 			margin-right: 1.5rem;
@@ -249,6 +264,10 @@
 		justify-content: flex-end;
     align-items: center;
 
+    @media only screen and (max-width: $bp-medium) {
+			justify-content: space-between;
+		}
+
 	}
 
   &__footer-left {
@@ -267,6 +286,7 @@
 		list-style-type: none;
 		display: flex;
     align-items: center;
+    margin-right: .5rem;
 
 		& > *:not(:last-child) {
 			margin-right: 2px;
@@ -276,12 +296,13 @@
 	&__stars-item {
 		display: flex;
 		align-items: center;
-    margin-right: 1rem;
+    
 		&:nth-child(6) {
 			font-size: 1.6rem;
 			font-weight: 500;
 			color: lighten($color-text, 30%);
       line-height: 1;
+      margin-left: 1rem;
 
 			@media only screen and (max-width: $bp-small) {
 				font-size: 2rem;
@@ -290,14 +311,9 @@
 	}
 
 	&__star {
-		height: 1.5rem;
-		width: 1.5rem;
+		height:1.75rem;
+		width: 1.75rem;
 		fill: #f8b42b;
-
-		@media only screen and (max-width: $bp-small) {
-			height: 1.75rem;
-			width: 1.75rem;
-		}
 	}
 
 	&__footer-dots {

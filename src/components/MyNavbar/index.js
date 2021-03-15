@@ -4,12 +4,12 @@ import { useMediaQuery } from 'react-responsive';
 import logo from '../../assets/img/homey-logo.png';
 import sprites from '../../assets/img/sprites.svg';
 import { DeviceSize } from '../../responsive/index';
-import MyMenuToggle from './MenuToggle';
+import MenuBars from './MenuBars';
 import MobileNavLinks from './MobileNavLinks';
 import Navlinks from './MyNavlinks';
 
 const MyNavbar = () => {
-	const isMobile = useMediaQuery({ maxWidth: DeviceSize.mobile });
+	const isMobile = useMediaQuery({ maxWidth: DeviceSize.tablet });
 	return (
 		<div className='mynavbar'>
 			<div className='mynavbar__container'>
@@ -25,7 +25,7 @@ const MyNavbar = () => {
 					</button>
 				</div>
 				{!isMobile && <Navlinks />}
-				{isMobile && <MyMenuToggle />}
+				{isMobile && <MenuBars />}
 			</div>
 			{isMobile && <MobileNavLinks />}
 		</div>
@@ -33,3 +33,4 @@ const MyNavbar = () => {
 };
 
 export default MyNavbar;
+		;	;							

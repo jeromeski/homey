@@ -2,63 +2,57 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { TimelineMax, Power4 } from 'gsap';
 import { connect } from 'react-redux';
-import * as action from '../../actions';
+import * as actions from '../../actions';
 // import {toggleMenu} from '../../actions'
 
-const MyMenuToggle = (props) => {
-	const { isOpen } = props;
-	const [menuOpen, setMenuOpen] = useState(null);
+const initBarsAnimation = (isOpen, timeline, topLine, middleLine, bottomLine) => {
+	if (isOpen) {
+		timeline
+			.to(middleLine.current, 0.1, { opacity: 0, ease: Power4.easeOut }, 0.2)
+			.to(topLine.current, 0.1, { rotation: 225, y: -7, transformOrigin: '50% 50%' }, 0.2)
+			.to(
+				bottomLine.current,
+				0.1,
+				{
+					y: 9,
+					rotation: -225,
+					transformOrigin: '50% 50%'
+				},
+				0.2
+			)
+			.play();
+	} else {
+		timeline
+			.to(topLine.current, 0.1, { rotation: 0, y: 0, transformOrigin: '50% 50%' }, 0.2)
+			.to(
+				bottomLine.current,
+				0.1,
+				{
+					y: 0,
+					rotation: 0,
+					transformOrigin: '50% 50%'
+				},
+				0.2
+			)
+			.to(middleLine.current, 0, { opacity: 1, ease: Power4.easeIn }, 0.3)
+			.play();
+	}
+};
+
+const MenuBars = (props) => {
+	const { isOpen, dispatch } = props;
 	const timeline = new TimelineMax({ pause: true });
 	const topLine = useRef(null);
 	const middleLine = useRef(null);
 	const bottomLine = useRef(null);
 
 	const handleToggleMenu = () => {
-		if (menuOpen) {
-			props.dispatch(action.toggleMenu(false));
-			setMenuOpen(false);
-		} else {
-			props.dispatch(action.toggleMenu(true));
-			setMenuOpen(true);
-		}
+		dispatch(actions.toggleMenu(!isOpen));
 	};
 
 	useEffect(() => {
-		if (!isOpen && menuOpen) {
-			setMenuOpen(false);
-		}
-		if (menuOpen) {
-			timeline
-				.to(middleLine.current, 0.1, { opacity: 0, ease: Power4.easeOut }, 0.2)
-				.to(topLine.current, 0.1, { rotation: 225, y: -7, transformOrigin: '50% 50%' }, 0.2)
-				.to(
-					bottomLine.current,
-					0.1,
-					{
-						y: 9,
-						rotation: -225,
-						transformOrigin: '50% 50%'
-					},
-					0.2
-				)
-				.play();
-		} else {
-			timeline
-				.to(topLine.current, 0.1, { rotation: 0, y: 0, transformOrigin: '50% 50%' }, 0.2)
-				.to(
-					bottomLine.current,
-					0.1,
-					{
-						y: 0,
-						rotation: 0,
-						transformOrigin: '50% 50%'
-					},
-					0.2
-				)
-				.to(middleLine.current, 0, { opacity: 1, ease: Power4.easeIn }, 0.3)
-				.play();
-		}
-	}, [menuOpen, isOpen, timeline]);
+		initBarsAnimation(isOpen, timeline, topLine, middleLine, bottomLine);
+	});
 
 	return (
 		<div>
@@ -82,6 +76,7 @@ const MyMenuToggle = (props) => {
 					<path d='M24,5v2c0,0.547-0.453,1-1,1H1C0.453,8,0,7.547,0,7V5c0-0.547,0.453-1,1-1h22C23.547,4,24,4.453,24,5z' />
 				</g>
 			</svg>
+			<div>{isOpen ? 'true' : 'false'}</div>
 		</div>
 	);
 };
@@ -92,4 +87,4 @@ const mapStateToProps = (state) => {
 	};
 };
 
-export default connect(mapStateToProps)(MyMenuToggle);
+export default connect(mapStateToProps)(MenuBars);

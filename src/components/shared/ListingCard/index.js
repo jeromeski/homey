@@ -6,7 +6,8 @@ import sprites from '../../../assets/img/sprites.svg';
 import { DeviceSize } from '../../../responsive/index';
 
 const ListingCard = () => {
-	const isMedium = useMediaQuery({ maxWidth: DeviceSize.tablet });
+	const isMobile = useMediaQuery({ maxWidth: DeviceSize.mobile });
+	const isTablet = useMediaQuery({ maxWidth: DeviceSize.tablet });
 	return (
 		<div className='card-type-2'>
 			<div className='card-type-2__container'>
@@ -24,10 +25,12 @@ const ListingCard = () => {
 							</div>
 							<div className='card-type-2__media-user-image'>
 								<img src='https://randomuser.me/api/portraits/women/85.jpg' alt='User avatar' />
-								<div>
-									<span>Hosted by</span>
-									<span>Emily Gilbert</span>
-								</div>
+								{!isTablet && (
+									<div>
+										<span>Hosted by</span>
+										<span>Emily Gilbert</span>
+									</div>
+								)}
 							</div>
 						</div>
 					</div>
@@ -42,19 +45,19 @@ const ListingCard = () => {
 							<svg className='card-type-2__amenities-icon'>
 								<use xlinkHref={`${sprites}#icon-bed`}></use>
 							</svg>
-							<span className='card-type-2__amenities-label'>3 {!isMedium && 'Bedrooms'}</span>
+							<span className='card-type-2__amenities-label'>3 {!isMobile && 'Bedrooms'}</span>
 						</li>
 						<li className='card-type-2__amenities-item'>
 							<svg className='card-type-2__amenities-icon'>
 								<use xlinkHref={`${sprites}#icon-shower`}></use>
 							</svg>
-							<span className='card-type-2__amenities-label'>2 {!isMedium && 'Baths'}</span>
+							<span className='card-type-2__amenities-label'>2 {!isMobile && 'Baths'}</span>
 						</li>
 						<li className='card-type-2__amenities-item'>
 							<svg className='card-type-2__amenities-icon'>
 								<use xlinkHref={`${sprites}#icon-user`}></use>
 							</svg>
-							<span className='card-type-2__amenities-label'>6 {!isMedium && 'Guests'}</span>
+							<span className='card-type-2__amenities-label'>6 {!isMobile && 'Guests'}</span>
 						</li>
 						<li className='card-type-2__amenities-item'>Apartment</li>
 					</ul>

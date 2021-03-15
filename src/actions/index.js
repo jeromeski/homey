@@ -1,8 +1,8 @@
 import { IS_OPEN } from './types';
 
-export const toggleMenu = (value) => {
+export const toggleMenu = (bool) => {
 	return {
 		type: IS_OPEN,
-		payload: value
+		payload: bool
 	};
 };
